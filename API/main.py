@@ -10,8 +10,8 @@ from transformers import GPT2LMHeadModel, GPT2Tokenizer
 import torch
 
 # Initialize FastAPI app
-app = FastAPI()
-
+app = FastAPI
+()
 # Load PCA object
 pca_loaded = joblib.load('../Exported/pca_transformer.pkl')
 
@@ -68,8 +68,6 @@ def generate_retention_message(prediction, input_data):
     retention_message = tokenizer.decode(output[0], skip_special_tokens=True).strip()
 
     return retention_message
-
-
 
 @app.post("/predict/")
 def predict_churn(data: ChurnPredictionInput):
